@@ -3,6 +3,8 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
+    <script src="./card_trick.js"></script>
+    <link rel="stylesheet" href="./card_trick.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -67,6 +69,63 @@
     <div class=" speakers">
         <center>
             <h2>Legendary Speakers</h2>
+        </center>
+<div class="card-scene">
+  <div id="card" class="card">
+    <div class="card-face card-backing">
+      <div class="grain-overlay"></div>
+      <div class="bump"></div>
+      <div class="top-banner"></div>
+      <div class="back-main">
+        <div class="pipboy">
+          <div class="twelve-point-star"></div>
+          <img src="https://vignette.wikia.nocookie.net/fallout/images/c/c0/VaultBoyFO3.png/revision/latest?cb=20110809182235" />
+        </div>
+        <div class="vault-tec">
+          <div class="center"></div>
+          <div class="lines">
+            <div class="line line--left">
+              <div class="line-inner"></div>
+              <div class="line-inner"></div>
+              <div class="line-inner"></div>
+            </div>
+            <div class="line line--right">
+              <div class="line-inner"></div>
+              <div class="line-inner"></div>
+              <div class="line-inner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-face card-front">
+      <h1>
+          <span class="bump">
+            <b class="outer">
+              <b class="inner">1</b>
+            </b>
+          </span>
+        Slugger
+      </h1>
+      <div class="main-pane">
+        <img class="slugger" src="https://vignette.wikia.nocookie.net/fallout/images/6/69/Fo76_Slugger.png/revision/latest/scale-to-width-down/353?cb=20181125171021"/>
+      </div>
+      <div class="desc">
+         <p>Your two-handed melee weapons now do +10% damage.</p>
+         <div class="special" data-category="strength">S</div>
+         <div id="level" class="level" data-level-cap="3" data-level-current="1"></div>
+       </div>
+      <div class="grain-overlay"></div>
+    </div>
+  </div>
+   <!--Card 2-->
+   
+</div>
+
+    </div>
+    <div class="festInfo">
+        <center>
+            <h2>What is this?</h2>
         </center>
     </div>
 
@@ -239,6 +298,38 @@ simulation.on("tick", function() {
 });
 </script>
 
+<script>
+    var level = document.getElementById('level');
+var levelCap = parseInt(level.getAttribute('data-level-cap'));
+var curLevel = parseInt(level.getAttribute('data-level-current'));
+var card = document.getElementById("card");
 
+for(var i = 1; i <= levelCap; i++) {
+  if(curLevel >= i) {
+    level.innerHTML += '<div class="star current-level"></div>';
+  }
+  else {
+    level.innerHTML += '<div class="star"></div>';
+  }
+}
+
+card.addEventListener('click', function(e){
+  e.stopPropagation();
+  if(card.classList.contains('card--flipped')) {
+    card.classList.add('card--unflip');
+    setTimeout(function(){
+      card.classList.remove('card--flipped', 'card--unflip');
+    }, 500);
+  }
+  else { 
+    card.classList.add("card--flipped");
+  }
+});
+
+/*
+References in the <head> for the conic-gradient background due to lack of browser support outside of Chrome.
+via: https://leaverou.github.io/conic-gradient/ 
+*/
+</script>
 </body>
 </html>

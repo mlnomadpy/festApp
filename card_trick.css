@@ -1,7 +1,37 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+  
+  html {
+    --color-yellow: #ddb724;
+    --color-orange: #d19245;
+    --color-off-black: #352d2a;
+    --color-grey: #6c6c6c;
+    --color-white: #e3dfc6;
+    --color-bone: #e7e4d5;
+    --color-main: #8cd1b3;
+    --color-main-lighten: #afdbbf;
+    --color-main-lighten2: #b2efcd;
+    --color-main-dark: #84a782;
+    --color-backing-top: #4e79ad;
+    --color-backing-light1: #b6cff3;
+    --color-backing-light2: #c8dcf1;
+    --color-backing-light3: #88b4ed;
+    --color-backing-light4: #2f5c8c;
+    --main-bg-color: #8cd1b3;
+    --border-radius: 1.5rem;
+  }
+  
 
+.card h1, .level {
+    font-family: 'Staatliches', sans-serif;
+  }
+  
+  p, .card span, .special{
+    font-family: 'Lakki Reddy', cursive;
+  }
 .card-scene {
     width: 37rem;
-    height: 47rem;
     perspective: 600px;
     -webkit-animation: cardAppear 1.4s forwards;
             animation: cardAppear 1.4s forwards;
@@ -40,6 +70,7 @@
     height: 100%;
     width: 100%;
     position: relative;
+    display: flex;
     transform-style: preserve-3d;
     transform: rotateY(180deg);
   }

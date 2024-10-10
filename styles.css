@@ -358,7 +358,7 @@ height: 100vh;
 
 .speakers{
 margin-top: 10%;
-height: 100vh;
+min-height: 100vh;
 background: #fcecd0ff; /* Change this to your desired background color */
 color: #000;
 }

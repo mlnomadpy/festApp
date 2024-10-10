@@ -1,0 +1,360 @@
+body {
+    background-color: #412c0f; /* Dark purple background */
+    color: white;
+    font-family: 'Orbitron', sans-serif; /* Orbitron font */
+    margin: 0;
+  }
+  .nav-logo{
+    width: 100px;
+  }
+  #home-link {
+    margin-bottom: -50px; /* Negative margin to make the border connect with the navbar's line */
+
+  
+  }
+  
+  .navbar {
+    display: flex; 
+    justify-content: space-around;
+    padding: 10px;
+    position: sticky; /* Make navbar stick to the top */
+    top: 0; /* Position at the very top of the page */
+    z-index: 1000; /* Ensures the navbar stays on top of other content */
+    background-color: #41270f55; /* Match the navbar background to the body for seamless appearance */
+  
+}
+
+.navbar::after, .navbar::before {
+  content: ''; /* Necessary for pseudo-elements */
+  position: absolute;
+  bottom: 0; /* Aligns the border with the bottom of the navbar */
+  height: 0.5px; /* Thickness of the border */
+  background-color: white; /* Color of the border */
+  width: 50%; /* Width of the border */
+}
+.navbar a:hover {
+  background-color: rgb(244, 165, 96); /* The color you provided */
+  color: #2d0f41; /* Text color on hover to match the body background */
+  
+  /* Add other styles as needed to make the hover effect more noticeable */
+  /* For example, you might want to change the text color, add padding, etc. */
+}
+
+.navbar::before {
+  left: 0; /* Starts from the left */
+  width: calc(50% - (100% / (2 * 7))); /* Adjusts the width to stop halfway at the first nav item */
+}
+
+.navbar::after {
+  right: 0; /* Starts from the right */
+  width: calc(50% - (100% / (2 * 7))); /* Adjusts the width to stop halfway at the last nav item */
+}
+  .navbar a {
+    color: white;
+    text-decoration: none;
+  }
+  .hero-sec {
+    position: relative;
+    min-height: 100vh;
+    background: url('./imgs/philly_devfest.png') no-repeat center;
+    background-size: cover; /* Ensures the background image covers the whole section */
+  }
+  
+  .hero-sec::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity for dimming */
+    z-index: 1; /* Places the overlay on top of the background */
+  }
+  
+  .hero-sec * {
+    position: relative;
+    z-index: 2; /* Ensures the content of the hero section is above the overlay */
+  }
+  
+  .circle-container {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 300px;
+    height: 300px;
+    /* background: url('./imgs/mlnomads-main-hero.png') no-repeat center; */
+    background-size: cover;
+  }
+  .circle-text {
+    position:absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    color: #fff;
+  }
+  .join-btn {
+  display: block;
+  width: 100px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: transparent; /* Make background transparent */
+  color: white;
+  border: 2px solid white; /* White border */
+  border-radius: 0; /* Sharp corners */
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer; /* Changes cursor to indicate button is clickable */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.join-btn:hover {
+  background-color: rgb(244, 165, 96); /* Button background on hover */
+  color: #41230f; /* Text color on hover to match the body background */
+}
+
+/* Scrollbar track */
+::-webkit-scrollbar {
+  width: 12px; /* Adjust width as needed */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(244, 165, 96); /* Sand-like color */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b08a68; /* Slightly darker sand color for hover effect */
+}
+
+/* Add a subtle shadow inside the scrollbar track for a 'sand dune' effect */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3); /* Simulating depth */
+  border-radius: 6px;
+}
+
+.hamburger {
+  display: none; /* Hidden by default */
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 24px; /* Height of hamburger icon */
+  width: 30px; /* Width of hamburger icon */
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: white; /* Color of the hamburger lines */
+  margin: 5px 0;
+}
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Show hamburger icon */
+  }
+
+  .navbar a:not(#home-link) {
+    display: none; /* Hide other links */
+  }
+
+  .nav-logo {
+    position: static;
+    transform: none;
+  }
+
+  /* When menu is toggled, show the items */
+  .navbar.responsive a {
+    display: block;
+    text-align: center;
+  }
+
+  .navbar.responsive {
+    position: absolute;
+    background-color: #412b0f;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+/* Center the logo */
+.nav-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.brand{
+  background-color: aliceblue;
+  width: 100%;
+  height: 100vh;
+}
+
+
+/* Sand Storm */
+.center{
+  top:0;
+  bottom: 0;left: 0;right: 0;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  .text-center{
+    text-align:center;
+    width:100%;
+  }
+}
+
+h1{
+  display:inline-block;
+  padding-right:5px;
+  border-right:10px solid #fff;
+  animation:blink 1s infinite;
+  @media screen and (max-width: 370px){
+    font-size: 5vw;
+    border-right:4px solid #fff;
+  }
+}
+
+@keyframes blink{
+  0%{
+    border-right-color:transparent;
+  }
+  50%{
+    border-right-color:transparent;
+  }
+  51%{
+    border-right-color:#fff;
+  }
+  100%{
+    border-right-color:#fff;
+  }
+}
+
+canvas{
+  position: absolute;
+  width:100%;
+  height:90%;
+}
+
+.social-icons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  color: white; /* Change the color based on your design */
+  font-size: 24px; /* Adjust size as needed */
+}
+
+.social-icons a:hover {
+  color: rgb(244, 165, 96); /* Change hover color as needed */
+}
+.join-btn:hover {
+  background-color: white; /* White background on hover */
+  color: black; /* Black text color on hover */
+  border: 2px solid black; /* Optional: change border color to black on hover */
+}
+
+#sand {
+  position: absolute;
+  z-index: -1; /* Set z-index to a negative value */
+}
+
+svg circle.node {
+  fill: #3b5998;
+  stroke: #1b3978;
+  stroke-width: 1.5px;
+}
+
+svg line.link {
+  stroke: #222;
+  stroke-opacity: .6;
+  stroke-width: 2px;
+}
+
+
+
+@media (max-width: 768px) {
+  div#userInfo {
+      width: auto; /* Adjust as needed for mobile */
+      font-size: 14px; /* Larger font for better readability */
+  }
+
+  svg circle.node {
+      stroke-width: 1px; /* Adjust stroke width for better visibility */
+  }
+
+  svg line.link {
+      stroke-width: 1px; /* Adjust link stroke width */
+  }
+
+  /* Adjust tooltip for mobile */
+  div.tooltip{
+    font-size: 16px;
+    max-width: none;
+    width: 80%;
+    left: 10%;
+    top: 20px;
+    transform: none;
+}
+}
+div.tooltip {   
+  /* position: absolute;            */
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  max-width: 250px; /* Limit the width */
+  padding: 10px;             
+  font: 14px sans-serif;        
+  background: rgb(252, 236, 208); /* Change this to your desired background color */
+  border: 1px solid #ddd;      
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  pointer-events: none;  
+  transition: opacity 0.3s;       
+}
+
+#tooltip{
+  background: #fcecd0ff; /* Change this to your desired background color */
+
+}
+#userInfo {
+  position: fixed; /* Use fixed for better positioning */
+  top: 100px;
+  right: 20px;
+  border: 1px solid #ddd;
+  background: #2d0f41b5;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  max-width: 300px; /* Limit the width of the panel */
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+@media (max-width: 768px) {
+  #userInfo {
+      top: auto;
+      bottom: 10px;
+      right: 10px;
+      left: 10px;
+      width: auto;
+  }
+}
+
+/* Fest About */
+
+.festInfo{
+  margin: auto;
+  height: 100vh;
+
+}
+
+.speakers{
+  margin-top: 10%;
+  height: 100vh;
+  background: #fcecd0ff; /* Change this to your desired background color */
+  color: #000;
+}

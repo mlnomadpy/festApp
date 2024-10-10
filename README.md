@@ -1,1 +1,1 @@
-# festApp
+# FestApp for Philly x Agadir
